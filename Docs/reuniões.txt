@@ -1,0 +1,2 @@
+Reunião 03/08
+Criamos o novo repositório do GitHub, distribuimos os convites para os integrantes da equipe, organizamos o repositorio com as pastas para documentos e arquivos do jogo e já fizemos os primeiros commits.
