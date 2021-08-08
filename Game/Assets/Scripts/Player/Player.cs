@@ -37,10 +37,9 @@ public class Player : MonoBehaviour
         Move();
         Jump();
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !isSneak && isGrounded && canFire) {
+        if (Input.GetKey(KeyCode.RightArrow) && !isSneak && isGrounded && canFire) {
             canFire = false;
             anim.SetBool("firing", true);
-            Debug.Log("Comecou");
         }
         FireRateHandler();
     }

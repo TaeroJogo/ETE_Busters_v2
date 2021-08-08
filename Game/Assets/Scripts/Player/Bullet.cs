@@ -12,4 +12,8 @@ public class Bullet : MonoBehaviour
     {
         rb.velocity = transform.right * speed;
     }
+
+    void OnBecameInvisible() {
+        Destroy(gameObject);
+     }
 }
