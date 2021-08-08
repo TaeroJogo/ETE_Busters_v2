@@ -19,6 +19,11 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
 
     private bool isSneak;
+
+    private bool canFire = true;
+    private bool hasShooted = false;
+    private float fireRateTime = 0.4f;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -32,8 +37,29 @@ public class Player : MonoBehaviour
         Move();
         Jump();
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !isSneak && isGrounded) {
-            Shoot();
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !isSneak && isGrounded && canFire) {
+            canFire = false;
+            anim.SetBool("firing", true);
+            Debug.Log("Comecou");
+        }
+        FireRateHandler();
+    }
+
+    void FireRateHandler(){
+        if(!canFire){
+            fireRateTime -= Time.deltaTime;
+
+            if (fireRateTime <= 0.2 && !hasShooted) {
+                Shoot();
+                hasShooted = true;
+            }
+            if (fireRateTime <= 0)
+            {
+                anim.SetBool("firing", false);
+                canFire = true;
+                hasShooted = false;
+                fireRateTime = 0.4f;
+            }
         }
     }
 
