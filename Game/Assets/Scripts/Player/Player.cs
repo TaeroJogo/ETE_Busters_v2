@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
 
     Animator anim;
 
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+
     private bool isSneak;
     void Start()
     {
@@ -28,6 +31,14 @@ public class Player : MonoBehaviour
 
         Move();
         Jump();
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !isSneak && isGrounded) {
+            Shoot();
+        }
+    }
+
+    void Shoot(){
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
     void Move(){
@@ -39,6 +50,7 @@ public class Player : MonoBehaviour
 
             if (Input.GetAxis("Horizontal") > 0f)
             {
+
                 anim.SetBool("run", true);
                 transform.eulerAngles = new Vector3(0f, 0f, 0f);
             }

@@ -5,15 +5,9 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
-
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            Shoot();
-        }
-    }
+    public GameObject bulletPrefab;
 
     void Shoot(){
-
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }
