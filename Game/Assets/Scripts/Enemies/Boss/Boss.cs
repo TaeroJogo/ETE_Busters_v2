@@ -4,8 +4,30 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-  public float targetTime = 20.0f;
+  private Rigidbody2D rig;
+  private float verticalSpeed = 2;
+
+  private float moveTime = 1.5f;
+
+  private Transform playerTransform;
+
+  void Start(){
+    rig = GetComponent<Rigidbody2D>();
+
+    playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+  }
  
- void Update(){ }
- 
+  void Update(){ 
+    moveTime -= Time.deltaTime;
+    if (moveTime <= 0){
+      moveTime = 1.5f;
+
+      if(transform.position.y > playerTransform.position.y) {
+        rig.AddForce(new Vector2(0f, -verticalSpeed), ForceMode2D.Impulse);
+      }
+      else {
+        rig.AddForce(new Vector2(0f, verticalSpeed), ForceMode2D.Impulse);
+      }
+    }
+  }
 }
