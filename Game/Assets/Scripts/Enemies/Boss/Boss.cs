@@ -21,6 +21,7 @@ public class Boss : MonoBehaviour
     moveTime -= Time.deltaTime;
     if (moveTime <= 0){
       moveTime = 1.5f;
+      Debug.Log("Move");
 
       if(transform.position.y > playerTransform.position.y) {
         rig.AddForce(new Vector2(0f, -verticalSpeed), ForceMode2D.Impulse);
@@ -29,5 +30,9 @@ public class Boss : MonoBehaviour
         rig.AddForce(new Vector2(0f, verticalSpeed), ForceMode2D.Impulse);
       }
     }
+  }
+
+  void OnTriggerEnter2D(Collider2D hitInfo){ 
+    Debug.Log(hitInfo.tag);
   }
 }
