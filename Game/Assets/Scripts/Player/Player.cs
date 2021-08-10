@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow) && !isSneak && isGrounded && canFire) {
             canFire = false;
+            anim.SetBool("run", false);
             anim.SetBool("firing", true);
         }
         FireRateHandler();
@@ -69,11 +70,12 @@ public class Player : MonoBehaviour
     void Move(){
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         
-        if(!isSneak) {
+        if(!isSneak && canFire) {
             transform.position += movement * Time.deltaTime * Speed;
         }
 
-            if (Input.GetAxis("Horizontal") > 0f)
+            if(canFire){
+                if (Input.GetAxis("Horizontal") > 0f)
             {
 
                 anim.SetBool("run", true);
@@ -97,6 +99,7 @@ public class Player : MonoBehaviour
             else {
                 isSneak = false;
                 anim.SetBool("sneak", false);
+            }
             }
     }
 
