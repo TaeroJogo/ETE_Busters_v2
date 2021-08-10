@@ -11,6 +11,9 @@ public class Boss : MonoBehaviour
 
   private Transform playerTransform;
 
+  private int health = 10;
+  private int damageAmount = 1;
+
   void Start(){
     rig = GetComponent<Rigidbody2D>();
 
@@ -21,7 +24,6 @@ public class Boss : MonoBehaviour
     moveTime -= Time.deltaTime;
     if (moveTime <= 0){
       moveTime = 1.5f;
-      Debug.Log("Move");
 
       if(transform.position.y > playerTransform.position.y) {
         rig.AddForce(new Vector2(0f, -verticalSpeed), ForceMode2D.Impulse);
@@ -32,7 +34,14 @@ public class Boss : MonoBehaviour
     }
   }
 
-  void OnTriggerEnter2D(Collider2D hitInfo){ 
-    Debug.Log(hitInfo.tag);
+  public void TakeDamage(){
+    health -= damageAmount;
+    if (health <= 0){
+      Destroy(gameObject);
+    }
+   }
+
+  void Die(){
+    Destroy(gameObject);
   }
 }

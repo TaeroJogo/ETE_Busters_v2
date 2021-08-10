@@ -15,5 +15,13 @@ public class Bullet : MonoBehaviour
 
     void OnBecameInvisible() {
         Destroy(gameObject);
-     }
+    }
+
+    void OnTriggerEnter2D(Collider2D hitInfo){
+        if(hitInfo.tag == "Boss"){
+            Boss boss = hitInfo.GetComponent<Boss>();
+            boss.TakeDamage();
+        }
+        Destroy(gameObject);
+  }
 }
