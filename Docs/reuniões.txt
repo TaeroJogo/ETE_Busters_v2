@@ -8,3 +8,14 @@ Leonardo Luciano
 Thúlio Balbuena
 Sofia Rezende
 Criamos o novo repositório do GitHub, distribuimos os convites para os integrantes da equipe, organizamos o repositorio com as pastas para documentos e arquivos do jogo e já fizemos os primeiros commits.
+
+Reunião 10/08
+Participantes:
+Arthur Martins 
+Bianca Souza
+Gabriel Mota
+Eduardo Valias
+Leonardo Luciano
+Thúlio Balbuena
+Sofia Rezende
+Continuamos a programação do jogo, enquanto aprimoramos as sprites dos personagens e discutimos sobre como seria a personagem feminina.
