@@ -19,3 +19,14 @@ Leonardo Luciano
 Thúlio Balbuena
 Sofia Rezende
 Continuamos a programação do jogo, enquanto aprimoramos as sprites dos personagens e discutimos sobre como seria a personagem feminina.
+
+Reunião 11/08
+Participantes:
+Arthur Martins 
+Bianca Souza
+Gabriel Mota
+Eduardo Valias
+Leonardo Luciano
+Thúlio Balbuena
+Sofia Rezende
+Decidimos reduzir um pouco a quantidade de fases que serão apresentadas nessa apresentação, porem adicionamos algumas features.
