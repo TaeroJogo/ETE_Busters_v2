@@ -209,4 +209,10 @@ public class Player : MonoBehaviour
             rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Ghost")) {
+            Destroy(other.gameObject);
+        }
+    }
 }
