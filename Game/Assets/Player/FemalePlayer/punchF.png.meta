@@ -1,28 +1,16 @@
 fileFormatVersion: 2
-guid: 0533c5e07dcf9f74cb6c3091062f59a6
+guid: 8bd7cf2d800073a4c9fdaaeb6b5ee20e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3204974255207185353
-    second: kick_0
+      213: -510708618840557037
+    second: punchF_0
   - first:
-      213: 2266301210975696020
-    second: kick_1
+      213: 4254713796909565433
+    second: punchF_1
   - first:
-      213: -8812950129534627220
-    second: kick_2
-  - first:
-      213: -6683984964195569292
-    second: kick_3
-  - first:
-      213: -8251923299009400527
-    second: kick_3
-  - first:
-      213: -8740855890705092528
-    second: kick_3
-  - first:
-      213: 2914718607920423493
-    second: kick_3
+      213: -8947280023697513686
+    second: punchF_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +77,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +89,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,148 +100,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kick_0
+      name: punchF_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 346
-        height: 557
+        width: 262
+        height: 691
       alignment: 9
-      pivot: {x: 0.25981414, y: 0.035}
+      pivot: {x: 0.012409303, y: 0.005}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7348a1445e4a583d0800000000000000
-      internalID: -3204974255207185353
+      spriteID: 31a374e873999e8f0800000000000000
+      internalID: -510708618840557037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_1
+      name: punchF_1
       rect:
         serializedVersion: 2
-        x: 344
+        x: 434
         y: 0
-        width: 307
-        height: 557
+        width: 433
+        height: 691
       alignment: 9
-      pivot: {x: 0.28656483, y: 0.012911522}
+      pivot: {x: 0.006, y: 0.007}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4947e3aa1f4837f10800000000000000
-      internalID: 2266301210975696020
+      spriteID: 9f58fb5e7a7cb0b30800000000000000
+      internalID: 4254713796909565433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_2
+      name: punchF_2
       rect:
         serializedVersion: 2
-        x: 649
+        x: 869
         y: 0
-        width: 369
-        height: 557
+        width: 262
+        height: 691
       alignment: 9
-      pivot: {x: 0.09031454, y: 0.011476909}
+      pivot: {x: 0.013, y: 0.0048}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c621bd9dc8c12b580800000000000000
-      internalID: -8812950129534627220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kick_4
-      rect:
-        serializedVersion: 2
-        x: 1475
-        y: 0
-        width: 303
-        height: 557
-      alignment: 9
-      pivot: {x: 0.28578535, y: 0.013406939}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 471321d9617bd33a0800000000000000
-      internalID: -6683984964195569292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kick_5
-      rect:
-        serializedVersion: 2
-        x: 1780
-        y: 0
-        width: 304
-        height: 557
-      alignment: 9
-      pivot: {x: 0.28307307, y: 0.014896601}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 13176c8ea774b7d80800000000000000
-      internalID: -8251923299009400527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kick_6
-      rect:
-        serializedVersion: 2
-        x: 2084
-        y: 0
-        width: 346
-        height: 557
-      alignment: 9
-      pivot: {x: 0.2721801, y: 0.038731195}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05074a1e0ed32b680800000000000000
-      internalID: -8740855890705092528
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kick_3
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 0
-        width: 454
-        height: 557
-      alignment: 9
-      pivot: {x: 0.16554455, y: 0.011917277}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 542615d8129237820800000000000000
-      internalID: 2914718607920423493
+      spriteID: a23af812930e4d380800000000000000
+      internalID: -8947280023697513686
       vertices: []
       indices: 
       edges: []

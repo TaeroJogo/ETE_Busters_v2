@@ -23,6 +23,14 @@ public class Player : MonoBehaviour
     private bool canFire = true;
     private bool hasShooted = false;
     private float fireRateTime = 0.4f;
+    private bool standShoot = false;
+    private string shootDirection;
+
+    private bool isPunching = false;
+    private float punchTime = 0.4f;
+
+    private bool isKicking = false;
+    private float kickTime = 0.6f;
 
     void Start()
     {
@@ -33,18 +41,89 @@ public class Player : MonoBehaviour
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
+        if (isGrounded) {
+            anim.SetBool("kicking", false);
+            isKicking = false;
+            kickTime = 0.6f;
+        }
 
         Move();
         Jump();
-
-        if (Input.GetKey(KeyCode.RightArrow) && !isSneak && isGrounded && canFire) {
-            canFire = false;
-            anim.SetBool("firing", true);
-        }
-        FireRateHandler();
+        
+        ShootHandler();
+        PhysicalAttackHandler();
     }
 
-    void FireRateHandler(){
+    void PhysicalAttackHandler() {
+        if(!isSneak && canFire){
+        if (Input.GetKey(KeyCode.UpArrow) && isGrounded && !isPunching) {
+            anim.SetBool("punching", true);
+            anim.SetBool("run", false);
+            isPunching = true;
+            }
+        else if(isPunching) {
+            punchTime -= Time.deltaTime;
+
+            if (punchTime <= 0)
+            {
+                isPunching = false;
+                anim.SetBool("punching", false);
+                punchTime = 0.4f;
+            }
+        }
+
+        if(Input.GetKey(KeyCode.UpArrow) && !isGrounded && !isKicking) {
+            isKicking = true;
+            anim.SetBool("kicking", true);
+        }
+        else if(isKicking) {
+            kickTime -= Time.deltaTime;
+
+            if (kickTime <= 0 || isGrounded)
+            {
+                isKicking = false;
+                anim.SetBool("kicking", false);
+                kickTime = 0.6f;
+            }
+        }
+    }
+    }
+
+    void ShootHandler(){
+
+        if(!isPunching) {
+            if(Input.GetKey("left shift")){
+           standShoot = true;
+           anim.SetBool("run", false);
+        }
+        else{
+            standShoot = false;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow) && !isSneak && isGrounded && canFire) {
+             if(standShoot){
+                  if ((Input.GetKey("a") || Input.GetKey("d")) && Input.GetKey("w")) {
+                    anim.SetBool("firing", true);
+                    shootDirection = "dig";
+                  }
+                  else if(Input.GetKey("w")) {
+                      shootDirection = "up";
+                      anim.SetBool("vert_firing", true);
+                  }
+                  else {
+                    anim.SetBool("firing", true);
+                    shootDirection = "";
+                  }
+             }
+             else {
+                 anim.SetBool("firing", true);
+                 shootDirection = "";
+             }
+
+            canFire = false;
+            anim.SetBool("run", false);
+        }
+
         if(!canFire){
             fireRateTime -= Time.deltaTime;
 
@@ -55,27 +134,40 @@ public class Player : MonoBehaviour
             if (fireRateTime <= 0)
             {
                 anim.SetBool("firing", false);
+                anim.SetBool("vert_firing", false);
                 canFire = true;
                 hasShooted = false;
                 fireRateTime = 0.4f;
             }
         }
+        }
     }
-
+   
     void Shoot(){
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        var diretion = shootDirection == "" ? Quaternion.Euler(0, 0, 0) : shootDirection == "up" ? Quaternion.Euler(0, 0, 90) : Quaternion.Euler(0, 0, 45);
+        var position = new Vector3(firePoint.position.x, firePoint.position.y , 0);
+
+        if(shootDirection == "up"){ 
+            if(transform.rotation.eulerAngles.y > 0){
+                position.x = firePoint.position.x + 2;
+            }
+            else {
+                position.x = firePoint.position.x - 2;
+            }
+        }
+        Instantiate(bulletPrefab, position, firePoint.rotation * diretion);
     }
 
     void Move(){
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         
-        if(!isSneak) {
+        if(!isSneak && canFire && !standShoot && !isPunching) {
             transform.position += movement * Time.deltaTime * Speed;
         }
 
-            if (Input.GetAxis("Horizontal") > 0f)
+            if(canFire && !hasShooted && !isPunching && !isKicking){
+                if (Input.GetAxis("Horizontal") > 0f)
             {
-
                 anim.SetBool("run", true);
                 transform.eulerAngles = new Vector3(0f, 0f, 0f);
             }
@@ -98,6 +190,7 @@ public class Player : MonoBehaviour
                 isSneak = false;
                 anim.SetBool("sneak", false);
             }
+            }
     }
 
     void Jump(){
@@ -111,7 +204,7 @@ public class Player : MonoBehaviour
             anim.SetBool("jump", true);
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded && !isSneak)
+        if (Input.GetKeyDown("w") && isGrounded && !isSneak)
         {
             rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
         }

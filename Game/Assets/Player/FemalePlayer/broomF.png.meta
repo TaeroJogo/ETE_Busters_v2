@@ -1,28 +1,34 @@
 fileFormatVersion: 2
-guid: 0533c5e07dcf9f74cb6c3091062f59a6
+guid: 44615470749d27d418aa00924fee7ce8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3204974255207185353
-    second: kick_0
+      213: -4118158718308893958
+    second: broomF_0
   - first:
-      213: 2266301210975696020
-    second: kick_1
+      213: 1578498999751359433
+    second: broomF_1
   - first:
-      213: -8812950129534627220
-    second: kick_2
+      213: -2719652680748678186
+    second: broomF_2
   - first:
-      213: -6683984964195569292
-    second: kick_3
+      213: -235965312381499736
+    second: broomF_3
   - first:
-      213: -8251923299009400527
-    second: kick_3
+      213: -7274029156556642761
+    second: broomF_4
   - first:
-      213: -8740855890705092528
-    second: kick_3
+      213: 8942930503822264296
+    second: broomF_5
   - first:
-      213: 2914718607920423493
-    second: kick_3
+      213: 5440754089062207064
+    second: broomF_6
+  - first:
+      213: -6270145980241684529
+    second: broomF_7
+  - first:
+      213: 6099044577805980627
+    second: broomF_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +95,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +107,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,148 +118,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kick_0
+      name: broomF_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 346
-        height: 557
+        width: 292
+        height: 970
       alignment: 9
-      pivot: {x: 0.25981414, y: 0.035}
+      pivot: {x: 0.12645946, y: 0.005}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7348a1445e4a583d0800000000000000
-      internalID: -3204974255207185353
+      spriteID: afa3582f67c59d6c0800000000000000
+      internalID: -4118158718308893958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_1
+      name: broomF_1
       rect:
         serializedVersion: 2
-        x: 344
+        x: 764
         y: 0
-        width: 307
-        height: 557
+        width: 297
+        height: 970
       alignment: 9
-      pivot: {x: 0.28656483, y: 0.012911522}
+      pivot: {x: 0.13805515, y: 0.005}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4947e3aa1f4837f10800000000000000
-      internalID: 2266301210975696020
+      spriteID: 9cb3d7e1a74f7e510800000000000000
+      internalID: 1578498999751359433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_2
+      name: broomF_2
       rect:
         serializedVersion: 2
-        x: 649
+        x: 1564
         y: 0
-        width: 369
-        height: 557
+        width: 375
+        height: 970
       alignment: 9
-      pivot: {x: 0.09031454, y: 0.011476909}
+      pivot: {x: 0.021746093, y: 0.005}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c621bd9dc8c12b580800000000000000
-      internalID: -8812950129534627220
+      spriteID: 6d34983db4ad14ad0800000000000000
+      internalID: -2719652680748678186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_4
+      name: broomF_3
       rect:
         serializedVersion: 2
-        x: 1475
+        x: 2333
         y: 0
-        width: 303
-        height: 557
+        width: 584
+        height: 970
       alignment: 9
-      pivot: {x: 0.28578535, y: 0.013406939}
+      pivot: {x: 0.015, y: 0.005}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 471321d9617bd33a0800000000000000
-      internalID: -6683984964195569292
+      spriteID: 8a6cf207ccea9bcf0800000000000000
+      internalID: -235965312381499736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_5
+      name: broomF_4
       rect:
         serializedVersion: 2
-        x: 1780
+        x: 3100
         y: 0
-        width: 304
-        height: 557
+        width: 742
+        height: 970
       alignment: 9
-      pivot: {x: 0.28307307, y: 0.014896601}
+      pivot: {x: 0.012155045, y: 0.005}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13176c8ea774b7d80800000000000000
-      internalID: -8251923299009400527
+      spriteID: 7366b9585057d0b90800000000000000
+      internalID: -7274029156556642761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_6
+      name: broomF_5
       rect:
         serializedVersion: 2
-        x: 2084
+        x: 3869
         y: 0
-        width: 346
-        height: 557
+        width: 725
+        height: 970
       alignment: 9
-      pivot: {x: 0.2721801, y: 0.038731195}
+      pivot: {x: 0.012063914, y: 0.005}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05074a1e0ed32b680800000000000000
-      internalID: -8740855890705092528
+      spriteID: 8e7c45b59ebab1c70800000000000000
+      internalID: 8942930503822264296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_3
+      name: broomF_6
       rect:
         serializedVersion: 2
-        x: 1019
+        x: 4638
         y: 0
-        width: 454
-        height: 557
+        width: 280
+        height: 970
       alignment: 9
-      pivot: {x: 0.16554455, y: 0.011917277}
+      pivot: {x: 0.02401995, y: 0.005}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 542615d8129237820800000000000000
-      internalID: 2914718607920423493
+      spriteID: 85e8ec48401718b40800000000000000
+      internalID: 5440754089062207064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broomF_7
+      rect:
+        serializedVersion: 2
+        x: 5398
+        y: 0
+        width: 269
+        height: 970
+      alignment: 9
+      pivot: {x: 0.055527925, y: 0.005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc7d9dd9377fbf8a0800000000000000
+      internalID: -6270145980241684529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broomF_8
+      rect:
+        serializedVersion: 2
+        x: 6164
+        y: 0
+        width: 747
+        height: 970
+      alignment: 9
+      pivot: {x: 0.023, y: 0.005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3d569bab824a450800000000000000
+      internalID: 6099044577805980627
       vertices: []
       indices: 
       edges: []

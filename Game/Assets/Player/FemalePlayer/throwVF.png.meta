@@ -1,28 +1,22 @@
 fileFormatVersion: 2
-guid: 0533c5e07dcf9f74cb6c3091062f59a6
+guid: 90237370e0e752c488bd03718560a008
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3204974255207185353
-    second: kick_0
+      213: 3641975927478536181
+    second: throwVF_0
   - first:
-      213: 2266301210975696020
-    second: kick_1
+      213: -8593958119994692372
+    second: throwVF_1
   - first:
-      213: -8812950129534627220
-    second: kick_2
+      213: -7167092449743514261
+    second: throwVF_2
   - first:
-      213: -6683984964195569292
-    second: kick_3
+      213: 6523306708813984469
+    second: throwVF_3
   - first:
-      213: -8251923299009400527
-    second: kick_3
-  - first:
-      213: -8740855890705092528
-    second: kick_3
-  - first:
-      213: 2914718607920423493
-    second: kick_3
+      213: 7181211103332626412
+    second: throwVF_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +83,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +95,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,148 +106,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kick_0
+      name: throwVF_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 346
-        height: 557
+        width: 350
+        height: 691
       alignment: 9
-      pivot: {x: 0.25981414, y: 0.035}
+      pivot: {x: 0.278, y: 0.006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7348a1445e4a583d0800000000000000
-      internalID: -3204974255207185353
+      spriteID: 5f7c1ed5fc5ea8230800000000000000
+      internalID: 3641975927478536181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_1
+      name: throwVF_1
       rect:
         serializedVersion: 2
-        x: 344
+        x: 381
         y: 0
-        width: 307
-        height: 557
+        width: 320
+        height: 691
       alignment: 9
-      pivot: {x: 0.28656483, y: 0.012911522}
+      pivot: {x: 0.2155, y: 0.006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4947e3aa1f4837f10800000000000000
-      internalID: 2266301210975696020
+      spriteID: cece1236f902cb880800000000000000
+      internalID: -8593958119994692372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_2
+      name: throwVF_2
       rect:
         serializedVersion: 2
-        x: 649
+        x: 714
         y: 0
-        width: 369
-        height: 557
+        width: 338
+        height: 691
       alignment: 9
-      pivot: {x: 0.09031454, y: 0.011476909}
+      pivot: {x: 0.256, y: 0.006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c621bd9dc8c12b580800000000000000
-      internalID: -8812950129534627220
+      spriteID: b6557acc36f598c90800000000000000
+      internalID: -7167092449743514261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_4
+      name: throwVF_3
       rect:
         serializedVersion: 2
-        x: 1475
+        x: 1110
         y: 0
-        width: 303
-        height: 557
+        width: 293
+        height: 691
       alignment: 9
-      pivot: {x: 0.28578535, y: 0.013406939}
+      pivot: {x: 0.143, y: 0.006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 471321d9617bd33a0800000000000000
-      internalID: -6683984964195569292
+      spriteID: 5d2b7c3c3e0778a50800000000000000
+      internalID: 6523306708813984469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_5
+      name: throwVF_4
       rect:
         serializedVersion: 2
-        x: 1780
+        x: 1480
         y: 0
-        width: 304
-        height: 557
+        width: 274
+        height: 691
       alignment: 9
-      pivot: {x: 0.28307307, y: 0.014896601}
+      pivot: {x: 0.082, y: 0.006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13176c8ea774b7d80800000000000000
-      internalID: -8251923299009400527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kick_6
-      rect:
-        serializedVersion: 2
-        x: 2084
-        y: 0
-        width: 346
-        height: 557
-      alignment: 9
-      pivot: {x: 0.2721801, y: 0.038731195}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05074a1e0ed32b680800000000000000
-      internalID: -8740855890705092528
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kick_3
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 0
-        width: 454
-        height: 557
-      alignment: 9
-      pivot: {x: 0.16554455, y: 0.011917277}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 542615d8129237820800000000000000
-      internalID: 2914718607920423493
+      spriteID: cef6b376379c8a360800000000000000
+      internalID: 7181211103332626412
       vertices: []
       indices: 
       edges: []
