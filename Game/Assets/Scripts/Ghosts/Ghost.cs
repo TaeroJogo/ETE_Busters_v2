@@ -30,8 +30,4 @@ public class Ghost : MonoBehaviour
             anim.SetBool("right", true);
         }
     }
-
-    private void SpawnGhosts() {
-
-    }
 }
