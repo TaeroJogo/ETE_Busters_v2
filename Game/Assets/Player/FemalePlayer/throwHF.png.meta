@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: 593acdaed959afb4e875e3084b56b36e
+guid: 4cf5e84820d67ef40983600a3c8ebe80
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1274967292748549190
-    second: running_0
+      213: 7022293417101915268
+    second: throwHF_0
   - first:
-      213: -825706690200963642
-    second: running_1
+      213: -3477906056649289102
+    second: throwHF_1
   - first:
-      213: -3341573891944662379
-    second: running_2
+      213: -2416531068476481482
+    second: throwHF_2
   - first:
-      213: 5720687236895615129
-    second: running_3
+      213: 3126250621671920194
+    second: throwHF_3
   - first:
-      213: 3627768386180016180
-    second: running_4
-  - first:
-      213: 1049788093197670058
-    second: running_5
+      213: 6523910234663222244
+    second: throwHF_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,7 +47,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -86,7 +83,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,7 +95,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,127 +106,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: running_0
+      name: throwHF_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 518
-        height: 689
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 463
+        height: 702
+      alignment: 9
+      pivot: {x: 0.451, y: 0.0058}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab33b7790086e4ee0800000000000000
-      internalID: -1274967292748549190
+      spriteID: 4847cea38a2347160800000000000000
+      internalID: 7022293417101915268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_1
+      name: throwHF_1
       rect:
         serializedVersion: 2
-        x: 517
-        y: 7
-        width: 408
-        height: 682
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c578e9d3208a84f0800000000000000
-      internalID: -825706690200963642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: running_2
-      rect:
-        serializedVersion: 2
-        x: 926
+        x: 881
         y: 0
-        width: 358
-        height: 689
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 262
+        height: 702
+      alignment: 9
+      pivot: {x: 0.043, y: 0.006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59a3bebef3850a1d0800000000000000
-      internalID: -3341573891944662379
+      spriteID: 2725d334edefbbfc0800000000000000
+      internalID: -3477906056649289102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_3
+      name: throwHF_2
       rect:
         serializedVersion: 2
-        x: 1286
+        x: 1565
         y: 0
-        width: 513
-        height: 689
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 295
+        height: 702
+      alignment: 9
+      pivot: {x: 0.014719611, y: 0.005}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99826428bb6f36f40800000000000000
-      internalID: 5720687236895615129
+      spriteID: 630a3caebc1c67ed0800000000000000
+      internalID: -2416531068476481482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_4
+      name: throwHF_3
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 0
-        width: 317
-        height: 689
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2245
+        y: 1
+        width: 472
+        height: 694
+      alignment: 9
+      pivot: {x: 0.01, y: 0.0067}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 438e6a1602c685230800000000000000
-      internalID: 3627768386180016180
+      spriteID: 2425997706ca26b20800000000000000
+      internalID: 3126250621671920194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_5
+      name: throwHF_4
       rect:
         serializedVersion: 2
-        x: 2118
+        x: 2924
         y: 0
-        width: 452
-        height: 689
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 470
+        height: 702
+      alignment: 9
+      pivot: {x: 0.012, y: 0.006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa65b7075b8919e00800000000000000
-      internalID: 1049788093197670058
+      spriteID: 4ebf2a31bc5998a50800000000000000
+      internalID: 6523910234663222244
       vertices: []
       indices: 
       edges: []
