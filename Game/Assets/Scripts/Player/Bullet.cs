@@ -22,6 +22,8 @@ public class Bullet : MonoBehaviour
             Boss boss = hitInfo.GetComponent<Boss>();
             boss.TakeDamage();
         }
-        Destroy(gameObject);
+        if(hitInfo.tag != "Player"){
+            Destroy(gameObject);
+        }
   }
 }
