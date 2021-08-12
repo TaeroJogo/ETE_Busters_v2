@@ -100,10 +100,10 @@ public class Player : MonoBehaviour
 
         if(shootDirection == "up"){ 
             if(transform.rotation.eulerAngles.y > 0){
-                position.x = firePoint.position.x + 0.5f;
+                position.x = firePoint.position.x + 2;
             }
             else {
-                position.x = firePoint.position.x - 0.5f;
+                position.x = firePoint.position.x - 2;
             }
         }
         Instantiate(bulletPrefab, position, firePoint.rotation * diretion);
