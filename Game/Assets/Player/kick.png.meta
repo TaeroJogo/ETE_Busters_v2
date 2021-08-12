@@ -178,9 +178,9 @@ TextureImporter:
       name: kick_4
       rect:
         serializedVersion: 2
-        x: 1474
+        x: 1475
         y: 0
-        width: 304
+        width: 303
         height: 557
       alignment: 9
       pivot: {x: 0.28578535, y: 0.013406939}

@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
     private bool isPunching = false;
     private float punchTime = 0.4f;
 
+    private bool isKicking = false;
+    private float kickTime = 0.6f;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -38,6 +41,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
+        if (isGrounded) {
+            anim.SetBool("kicking", false);
+            isKicking = false;
+            kickTime = 0.6f;
+        }
 
         Move();
         Jump();
@@ -47,11 +55,12 @@ public class Player : MonoBehaviour
     }
 
     void PhysicalAttackHandler() {
-        if (Input.GetKey(KeyCode.UpArrow) && !isSneak && canFire && !isPunching) {
+        if(!isSneak && canFire){
+        if (Input.GetKey(KeyCode.UpArrow) && isGrounded && !isPunching) {
             anim.SetBool("punching", true);
             anim.SetBool("run", false);
             isPunching = true;
-        }
+            }
         else if(isPunching) {
             punchTime -= Time.deltaTime;
 
@@ -62,6 +71,22 @@ public class Player : MonoBehaviour
                 punchTime = 0.4f;
             }
         }
+
+        if(Input.GetKey(KeyCode.UpArrow) && !isGrounded && !isKicking) {
+            isKicking = true;
+            anim.SetBool("kicking", true);
+        }
+        else if(isKicking) {
+            kickTime -= Time.deltaTime;
+
+            if (kickTime <= 0 || isGrounded)
+            {
+                isKicking = false;
+                anim.SetBool("kicking", false);
+                kickTime = 0.6f;
+            }
+        }
+    }
     }
 
     void ShootHandler(){
@@ -140,7 +165,7 @@ public class Player : MonoBehaviour
             transform.position += movement * Time.deltaTime * Speed;
         }
 
-            if(canFire && !hasShooted && !isPunching){
+            if(canFire && !hasShooted && !isPunching && !isKicking){
                 if (Input.GetAxis("Horizontal") > 0f)
             {
                 anim.SetBool("run", true);
