@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     private bool canFire = true;
     private bool hasShooted = false;
     private float fireRateTime = 0.4f;
+    private bool standShoot = false;
+    private string shootDirection;
 
     void Start()
     {
@@ -36,16 +38,44 @@ public class Player : MonoBehaviour
 
         Move();
         Jump();
-
-        if (Input.GetKey(KeyCode.RightArrow) && !isSneak && isGrounded && canFire) {
-            canFire = false;
-            anim.SetBool("run", false);
-            anim.SetBool("firing", true);
-        }
-        FireRateHandler();
+        
+        ShootHandler();
     }
 
-    void FireRateHandler(){
+    void ShootHandler(){
+
+        if(Input.GetKey("left shift")){
+           standShoot = true;
+           anim.SetBool("run", false);
+        }
+        else{
+            standShoot = false;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow) && !isSneak && isGrounded && canFire) {
+             if(standShoot){
+                  if ((Input.GetKey("a") || Input.GetKey("d")) && Input.GetKey("w")) {
+                    anim.SetBool("firing", true);
+                    shootDirection = "dig";
+                  }
+                  else if(Input.GetKey("w")) {
+                      shootDirection = "up";
+                      anim.SetBool("vert_firing", true);
+                  }
+                  else {
+                    anim.SetBool("firing", true);
+                    shootDirection = "";
+                  }
+             }
+             else {
+                 anim.SetBool("firing", true);
+                 shootDirection = "";
+             }
+
+            canFire = false;
+            anim.SetBool("run", false);
+        }
+
         if(!canFire){
             fireRateTime -= Time.deltaTime;
 
@@ -56,28 +86,39 @@ public class Player : MonoBehaviour
             if (fireRateTime <= 0)
             {
                 anim.SetBool("firing", false);
+                anim.SetBool("vert_firing", false);
                 canFire = true;
                 hasShooted = false;
                 fireRateTime = 0.4f;
             }
         }
     }
-
+   
     void Shoot(){
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        var diretion = shootDirection == "" ? Quaternion.Euler(0, 0, 0) : shootDirection == "up" ? Quaternion.Euler(0, 0, 90) : Quaternion.Euler(0, 0, 45);
+        var position = new Vector3(firePoint.position.x, firePoint.position.y , 0);
+
+        if(shootDirection == "up"){ 
+            if(transform.rotation.eulerAngles.y > 0){
+                position.x = firePoint.position.x + 0.5f;
+            }
+            else {
+                position.x = firePoint.position.x - 0.5f;
+            }
+        }
+        Instantiate(bulletPrefab, position, firePoint.rotation * diretion);
     }
 
     void Move(){
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         
-        if(!isSneak && canFire) {
+        if(!isSneak && canFire && !standShoot) {
             transform.position += movement * Time.deltaTime * Speed;
         }
 
-            if(canFire){
+            if(canFire && !hasShooted){
                 if (Input.GetAxis("Horizontal") > 0f)
             {
-
                 anim.SetBool("run", true);
                 transform.eulerAngles = new Vector3(0f, 0f, 0f);
             }
