@@ -114,7 +114,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 519
+        width: 518
         height: 689
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -133,13 +133,13 @@ TextureImporter:
       name: running_1
       rect:
         serializedVersion: 2
-        x: 518
+        x: 517
         y: 7
-        width: 410
-        height: 675
+        width: 409
+        height: 682
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 3, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -154,9 +154,9 @@ TextureImporter:
       name: running_2
       rect:
         serializedVersion: 2
-        x: 924
+        x: 926
         y: 0
-        width: 363
+        width: 359
         height: 689
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -177,11 +177,11 @@ TextureImporter:
         serializedVersion: 2
         x: 1286
         y: 0
-        width: 512
+        width: 513
         height: 689
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 4, y: 0, z: 3, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -198,7 +198,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1799
         y: 0
-        width: 320
+        width: 318
         height: 689
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -217,9 +217,9 @@ TextureImporter:
       name: running_5
       rect:
         serializedVersion: 2
-        x: 2118
+        x: 2117
         y: 0
-        width: 452
+        width: 453
         height: 689
       alignment: 7
       pivot: {x: 0.5, y: 0}
