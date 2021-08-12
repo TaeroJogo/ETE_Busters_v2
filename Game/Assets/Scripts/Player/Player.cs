@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
     private bool standShoot = false;
     private string shootDirection;
 
+    private bool isPunching = false;
+    private float punchTime = 0.4f;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -40,11 +43,31 @@ public class Player : MonoBehaviour
         Jump();
         
         ShootHandler();
+        PhysicalAttackHandler();
+    }
+
+    void PhysicalAttackHandler() {
+        if (Input.GetKey(KeyCode.UpArrow) && !isSneak && canFire && !isPunching) {
+            anim.SetBool("punching", true);
+            anim.SetBool("run", false);
+            isPunching = true;
+        }
+        else if(isPunching) {
+            punchTime -= Time.deltaTime;
+
+            if (punchTime <= 0)
+            {
+                isPunching = false;
+                anim.SetBool("punching", false);
+                punchTime = 0.4f;
+            }
+        }
     }
 
     void ShootHandler(){
 
-        if(Input.GetKey("left shift")){
+        if(!isPunching) {
+            if(Input.GetKey("left shift")){
            standShoot = true;
            anim.SetBool("run", false);
         }
@@ -92,6 +115,7 @@ public class Player : MonoBehaviour
                 fireRateTime = 0.4f;
             }
         }
+        }
     }
    
     void Shoot(){
@@ -112,11 +136,11 @@ public class Player : MonoBehaviour
     void Move(){
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         
-        if(!isSneak && canFire && !standShoot) {
+        if(!isSneak && canFire && !standShoot && !isPunching) {
             transform.position += movement * Time.deltaTime * Speed;
         }
 
-            if(canFire && !hasShooted){
+            if(canFire && !hasShooted && !isPunching){
                 if (Input.GetAxis("Horizontal") > 0f)
             {
                 anim.SetBool("run", true);
@@ -155,7 +179,7 @@ public class Player : MonoBehaviour
             anim.SetBool("jump", true);
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded && !isSneak)
+        if (Input.GetKeyDown("w") && isGrounded && !isSneak)
         {
             rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
         }
