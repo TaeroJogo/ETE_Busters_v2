@@ -277,5 +277,13 @@ public class Player : MonoBehaviour
             pew.DestroyBossPew();
             HasPlayerTakenDamage(pew.transform, 2);
         }
+        if (other.gameObject.CompareTag("Boss"))
+        {
+            Boss boss = other.GetComponent<Boss>();
+            if (!HasPlayerTakenDamage(boss.transform, 10))
+            {
+                boss.TakeDamage();
+            }
+        }
     }
 }

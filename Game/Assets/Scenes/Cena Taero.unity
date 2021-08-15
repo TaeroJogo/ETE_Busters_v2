@@ -1501,6 +1501,7 @@ MonoBehaviour:
   timer: {fileID: 1501329486}
   bossPew: {fileID: 2189323514154825389, guid: 8cb8e61d318e9974288a26dc4aebb8ce, type: 3}
   bossFirePoint: {fileID: 57746277}
+  rb: {fileID: 1501329485}
 --- !u!61 &1501329482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1511,7 +1512,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1586,7 +1587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501329480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.22, y: -39.81, z: 0}
+  m_LocalPosition: {x: 6.3, y: -39.86, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 57746277}
@@ -1612,7 +1613,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1501329486
 MonoBehaviour:

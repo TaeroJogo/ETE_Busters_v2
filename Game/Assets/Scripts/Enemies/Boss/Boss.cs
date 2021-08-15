@@ -5,9 +5,8 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     private Rigidbody2D rig;
-    private float verticalSpeed = 2;
-
-    private float moveTime = 1;
+    private float verticalSpeed = 2f;
+    private float initialX;
     private bool canMove = true;
 
     public bool isDead = false;
@@ -35,6 +34,8 @@ public class Boss : MonoBehaviour
 
     Animator anim;
 
+    public Rigidbody2D rb;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -42,6 +43,8 @@ public class Boss : MonoBehaviour
         anim.SetBool("attack", true);
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        initialX = transform.position.x;
 
         timer.CreateTimer("bossSprintAttack", waitForFirstSprintAttack, 0, false, ActivateSprintAttack);
         timer.CreateTimer("bossActivateShootAttack", waitForFirstShootAttack, 0, false, ActivateShoot);
@@ -103,39 +106,22 @@ public class Boss : MonoBehaviour
     {
         if (canSprintAttack)
         {
+            canMove = true;
             canSprintAttack = false;
             timer.CreateTimer("bossSprintAttack", sprintAttackTime, 0, false, RestartSprintAttack);
         }
         if (sprintAttacking)
         {
-            Vector3 p = transform.position;
-            if (p.x > -9)
-            {
-                p.x -= 0.01f;
-            }
-            transform.position = p;
-        }
-        else
-        {
-            Vector3 p = transform.position;
-            if (p.x < 6.5)
-            {
-                p.x += 0.01f;
-            }
-            transform.position = p;
-        }
-    }
+            float dir = -1;
 
-    void RestartMove()
-    {
-        canMove = true;
-        if (transform.position.y > playerTransform.position.y)
-        {
-            rig.AddForce(new Vector2(0f, -verticalSpeed), ForceMode2D.Impulse);
-        }
-        else
-        {
-            rig.AddForce(new Vector2(0f, verticalSpeed), ForceMode2D.Impulse);
+            if (transform.position.y > playerTransform.position.y)
+            {
+                dir = 1;
+            }
+            if (transform.position.x > (initialX - 7f))
+            {
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(playerTransform.position.x, playerTransform.position.y + (2.5f * dir)), verticalSpeed * 5 * Time.deltaTime);
+            }
         }
     }
 
@@ -143,8 +129,14 @@ public class Boss : MonoBehaviour
     {
         if (canMove)
         {
-            canMove = false;
-            timer.CreateTimer("bossMove", moveTime, 0, false, RestartMove);
+            if (transform.position.y > playerTransform.position.y)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(initialX, playerTransform.position.y + 2.5f), verticalSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(initialX, playerTransform.position.y - 2.5f), verticalSpeed * Time.deltaTime);
+            }
         }
     }
 
