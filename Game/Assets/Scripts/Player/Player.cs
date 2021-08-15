@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     private float kickTime = 0.6f;
 
     public Timer timer;
+    public HealthBar healthBar;
 
     void Start()
     {
@@ -208,6 +209,9 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Ghost")) {
             Destroy(other.gameObject);
+            if(!isKicking && !isPunching) {
+                 healthBar.loseHealth(5);
+            }
         }
     }
 }
