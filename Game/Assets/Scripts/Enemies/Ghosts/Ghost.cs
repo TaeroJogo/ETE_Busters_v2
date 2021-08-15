@@ -12,22 +12,41 @@ public class Ghost : MonoBehaviour
 
     Animator anim;
 
-    void Start() {
+    public Timer timer;
+
+    private float dieAnimationTime = 0.6f;
+
+    void Start()
+    {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    void Update() {
+    void Update()
+    {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        
-        if(transform.position.x > target.position.x) {
+
+        if (transform.position.x > target.position.x)
+        {
             anim.SetBool("right", false);
             anim.SetBool("left", true);
         }
-        else {
+        else
+        {
             anim.SetBool("left", false);
             anim.SetBool("right", true);
         }
+    }
+
+    void DieAnimation()
+    {
+        Destroy(gameObject);
+    }
+
+    public void Die()
+    {
+        anim.SetBool("die", true);
+        timer.CreateTimer("ghostDie", dieAnimationTime, 0, false, DieAnimation);
     }
 }
