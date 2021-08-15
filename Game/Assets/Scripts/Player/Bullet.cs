@@ -20,12 +20,14 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        List<string> whiteListCollider = new List<string> { "Player", "Pufe" };
+
         if (hitInfo.tag == "Boss")
         {
             Boss boss = hitInfo.GetComponent<Boss>();
             boss.TakeDamage();
         }
-        if (hitInfo.tag != "Player")
+        if (!whiteListCollider.Contains(hitInfo.tag))
         {
             Destroy(gameObject);
         }

@@ -8,6 +8,7 @@ TagManager:
   - Ghost
   - BossPew
   - worldBorder
+  - Pufe
   layers:
   - Default
   - TransparentFX
