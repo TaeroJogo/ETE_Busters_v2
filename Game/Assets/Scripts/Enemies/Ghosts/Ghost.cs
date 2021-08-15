@@ -14,7 +14,7 @@ public class Ghost : MonoBehaviour
 
     public Timer timer;
 
-    private float dieAnimationTime = 0.6f;
+    private float dieAnimationTime = 0.5f;
 
     void Start()
     {
@@ -25,6 +25,7 @@ public class Ghost : MonoBehaviour
 
     void Update()
     {
+
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
         if (transform.position.x > target.position.x)
@@ -46,7 +47,13 @@ public class Ghost : MonoBehaviour
 
     public void Die()
     {
+
         anim.SetBool("die", true);
         timer.CreateTimer("ghostDie", dieAnimationTime, 0, false, DieAnimation);
+    }
+
+    public void InvertDirection()
+    {
+        speed *= -1;
     }
 }

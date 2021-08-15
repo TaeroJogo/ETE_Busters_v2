@@ -29,9 +29,16 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (hitInfo.gameObject.CompareTag("Ghost"))
+        if (hitInfo.tag == "Ghost")
         {
-            Destroy(hitInfo.gameObject);
+            Ghost ghost = hitInfo.GetComponent<Ghost>();
+            ghost.Die();
+            ghost.InvertDirection();
+        }
+        if (hitInfo.tag == "BossPew")
+        {
+            BossPew bossPew = hitInfo.GetComponent<BossPew>();
+            bossPew.DestroyBossPew();
         }
     }
 }
