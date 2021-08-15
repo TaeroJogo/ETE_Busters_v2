@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    
+
     public float speed = 20f;
     public Rigidbody2D rb;
 
@@ -13,17 +13,21 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    void OnBecameInvisible() {
+    void OnBecameInvisible()
+    {
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D(Collider2D hitInfo){
-        if(hitInfo.tag == "Boss"){
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        if (hitInfo.tag == "Boss")
+        {
             Boss boss = hitInfo.GetComponent<Boss>();
             boss.TakeDamage();
         }
-        if(hitInfo.tag != "Player"){
+        if (hitInfo.tag != "Player")
+        {
             Destroy(gameObject);
         }
-  }
+    }
 }
