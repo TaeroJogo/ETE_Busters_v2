@@ -240,11 +240,28 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ghost"))
         {
-
             Ghost ghost = other.GetComponent<Ghost>();
+            bool isInFrontOf = false;
+
+            if ((transform.forward.z == 1 && ghost.transform.position.x > (transform.position.x + 1.2)) || (transform.forward.z == -1 && ghost.transform.position.x > (transform.position.x - 1.2)))
+            {
+                isInFrontOf = true;
+            }
+
             ghost.Die();
 
-            if (!isKicking && !isPunching)
+            if (isKicking || isPunching)
+            {
+                if (!isInFrontOf)
+                {
+                    healthBar.loseHealth(5);
+                }
+                else
+                {
+                    ghost.InvertDirection();
+                }
+            }
+            else if (!isKicking && !isPunching)
             {
                 healthBar.loseHealth(5);
             }

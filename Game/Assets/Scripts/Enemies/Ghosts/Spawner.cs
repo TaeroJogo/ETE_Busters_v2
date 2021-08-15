@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     public GameObject ghost;
     float randX;
     Vector2 location;
-    public float spawnRate = 2f;
+    private float spawnRate = 2f;
     float nextSpawn = 0.0f;
 
     void Update()
