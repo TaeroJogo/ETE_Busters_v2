@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
     private bool isKicking = false;
     private float kickTime = 0.6f;
 
+    public Timer timer;
+    public HealthBar healthBar;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -54,37 +57,38 @@ public class Player : MonoBehaviour
         PhysicalAttackHandler();
     }
 
+    private void RestartPunch(){
+        isPunching = false;
+        anim.SetBool("punching", false);
+    }
+
+    private void RestartKick() {
+        isKicking = false;
+        anim.SetBool("kicking", false);
+    }
+
+    private void RestartShoot(){
+        anim.SetBool("firing", false);
+        anim.SetBool("vert_firing", false);
+        canFire = true;
+        hasShooted = false;
+    }
+
     void PhysicalAttackHandler() {
         if(!isSneak && canFire){
         if (Input.GetKey(KeyCode.UpArrow) && isGrounded && !isPunching) {
             anim.SetBool("punching", true);
             anim.SetBool("run", false);
             isPunching = true;
-            }
-        else if(isPunching) {
-            punchTime -= Time.deltaTime;
 
-            if (punchTime <= 0)
-            {
-                isPunching = false;
-                anim.SetBool("punching", false);
-                punchTime = 0.4f;
-            }
+            timer.CreateTimer("punch", punchTime, 0, false, RestartPunch);
         }
 
         if(Input.GetKey(KeyCode.UpArrow) && !isGrounded && !isKicking) {
             isKicking = true;
             anim.SetBool("kicking", true);
-        }
-        else if(isKicking) {
-            kickTime -= Time.deltaTime;
 
-            if (kickTime <= 0 || isGrounded)
-            {
-                isKicking = false;
-                anim.SetBool("kicking", false);
-                kickTime = 0.6f;
-            }
+            timer.CreateTimer("kick", kickTime, 0, false, RestartKick);
         }
     }
     }
@@ -122,28 +126,20 @@ public class Player : MonoBehaviour
 
             canFire = false;
             anim.SetBool("run", false);
+
+            timer.CreateTimer("shoot", fireRateTime, 0, false, RestartShoot);
         }
 
         if(!canFire){
-            fireRateTime -= Time.deltaTime;
-
-            if (fireRateTime <= 0.2 && !hasShooted) {
+            if (timer.GetTimeStamp("shoot") <= 0.2 && !hasShooted) {
                 Shoot();
                 hasShooted = true;
-            }
-            if (fireRateTime <= 0)
-            {
-                anim.SetBool("firing", false);
-                anim.SetBool("vert_firing", false);
-                canFire = true;
-                hasShooted = false;
-                fireRateTime = 0.4f;
             }
         }
         }
     }
    
-    void Shoot(){
+    public void Shoot(){
         var diretion = shootDirection == "" ? Quaternion.Euler(0, 0, 0) : shootDirection == "up" ? Quaternion.Euler(0, 0, 90) : Quaternion.Euler(0, 0, 45);
         var position = new Vector3(firePoint.position.x, firePoint.position.y , 0);
 
@@ -204,7 +200,7 @@ public class Player : MonoBehaviour
             anim.SetBool("jump", true);
         }
 
-        if (Input.GetKeyDown("w") && isGrounded && !isSneak)
+        if (Input.GetKeyDown("w") && isGrounded && !isSneak && !standShoot)
         {
             rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
         }
@@ -213,6 +209,9 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Ghost")) {
             Destroy(other.gameObject);
+            if(!isKicking && !isPunching) {
+                 healthBar.loseHealth(5);
+            }
         }
     }
 }
