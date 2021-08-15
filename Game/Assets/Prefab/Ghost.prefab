@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 52100432896765237}
   - component: {fileID: 52100432896765238}
   - component: {fileID: 52100432896765236}
+  - component: {fileID: -949299882333221021}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Ghost
@@ -144,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  timer: {fileID: -949299882333221021}
 --- !u!50 &52100432896765236
 Rigidbody2D:
   serializedVersion: 4
@@ -165,3 +167,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-949299882333221021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52100432896765240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b693070f03774642a6a02ff46847f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

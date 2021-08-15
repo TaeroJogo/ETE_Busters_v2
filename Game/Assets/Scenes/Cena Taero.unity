@@ -1304,8 +1304,8 @@ MonoBehaviour:
     m_Bits: 8
   firePoint: {fileID: 1558784458}
   bulletPrefab: {fileID: 664756913972018402, guid: e4a80c52e9a6e91438acec88fffc9f15, type: 3}
-  healthBar: {fileID: 1332012223}
   timer: {fileID: 1457875831}
+  healthBar: {fileID: 1332012223}
 --- !u!50 &1457875825
 Rigidbody2D:
   serializedVersion: 4
