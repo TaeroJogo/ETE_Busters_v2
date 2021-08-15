@@ -35,6 +35,9 @@ public class Player : MonoBehaviour
     public Timer timer;
     public HealthBar healthBar;
 
+    public IDCardsCounterController idCardsCounter;
+    private int idCards = 100;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -104,7 +107,7 @@ public class Player : MonoBehaviour
     void ShootHandler()
     {
 
-        if (!isPunching)
+        if (!isPunching && idCards > 0)
         {
             if (Input.GetKey("left shift"))
             {
@@ -144,6 +147,9 @@ public class Player : MonoBehaviour
 
                 canFire = false;
                 anim.SetBool("run", false);
+
+                idCards--;
+                idCardsCounter.UpdateIDCardsCounter(idCards.ToString());
 
                 timer.CreateTimer("shoot", fireRateTime, 0, false, RestartShoot);
             }
@@ -208,6 +214,7 @@ public class Player : MonoBehaviour
             if (Input.GetKey("s"))
             {
                 isSneak = true;
+                anim.SetBool("run", false);
                 anim.SetBool("sneak", true);
             }
             else
@@ -269,13 +276,19 @@ public class Player : MonoBehaviour
             if (!HasPlayerTakenDamage(ghost.transform, 5))
             {
                 ghost.InvertDirection();
+                idCards += 5;
+                idCardsCounter.UpdateIDCardsCounter(idCards.ToString());
             }
         }
         if (other.gameObject.CompareTag("BossPew"))
         {
             BossPew pew = other.GetComponent<BossPew>();
             pew.DestroyBossPew();
-            HasPlayerTakenDamage(pew.transform, 2);
+            if (!HasPlayerTakenDamage(pew.transform, 2))
+            {
+                idCards += 3;
+                idCardsCounter.UpdateIDCardsCounter(idCards.ToString());
+            }
         }
         if (other.gameObject.CompareTag("Boss"))
         {
