@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 329515198}
   m_Layer: 3
   m_Name: pufe1 (2)
-  m_TagString: Untagged
+  m_TagString: Pufe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 1113217904}
   m_Layer: 3
   m_Name: pufe1 (1)
-  m_TagString: Untagged
+  m_TagString: Pufe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1870,7 +1870,7 @@ GameObject:
   - component: {fileID: 1797001434}
   m_Layer: 3
   m_Name: pufe1
-  m_TagString: Untagged
+  m_TagString: Pufe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
