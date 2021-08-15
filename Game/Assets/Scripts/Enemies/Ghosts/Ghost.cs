@@ -14,7 +14,7 @@ public class Ghost : MonoBehaviour
 
     public Timer timer;
 
-    private float dieAnimationTime = 0.6f;
+    private float dieAnimationTime = 0.5f;
 
     void Start()
     {

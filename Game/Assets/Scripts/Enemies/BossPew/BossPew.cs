@@ -9,7 +9,7 @@ public class BossPew : MonoBehaviour
     private Boss boss;
 
     Animator anim;
-    private float dieTimeAnim = 0.5f;
+    private float dieTimeAnim = 0.4f;
     private float speed = -2f;
     public Rigidbody2D rb;
 
@@ -17,6 +17,7 @@ public class BossPew : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        anim.SetBool("flying", true);
         rb.velocity = transform.right * speed;
     }
 
@@ -26,10 +27,11 @@ public class BossPew : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void DestroyBossPew()
+    public void DestroyBossPew()
     {
-        rb.velocity = transform.right * 0;
+        anim.SetBool("flying", false);
         anim.SetBool("die", true);
+        rb.velocity = transform.right * 0;
         timer.CreateTimer("bossDieAnimation", dieTimeAnim, 0, false, Die);
     }
 

@@ -236,35 +236,46 @@ public class Player : MonoBehaviour
         }
     }
 
+    bool HasPlayerTakenDamage(Transform entityT, int damage)
+    {
+
+        bool hasTakenDamage = true;
+        if (isKicking || isPunching)
+        {
+            if (!((transform.forward.z == 1 && entityT.position.x > (transform.position.x + 1.2)) || (transform.forward.z == -1 && entityT.position.x > (transform.position.x - 1.2))))
+            {
+                healthBar.loseHealth(damage);
+            }
+            else
+            {
+                hasTakenDamage = false;
+            }
+        }
+        else if (!isKicking && !isPunching)
+        {
+            healthBar.loseHealth(damage);
+        }
+
+        return hasTakenDamage;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Ghost"))
         {
             Ghost ghost = other.GetComponent<Ghost>();
-            bool isInFrontOf = false;
-
-            if ((transform.forward.z == 1 && ghost.transform.position.x > (transform.position.x + 1.2)) || (transform.forward.z == -1 && ghost.transform.position.x > (transform.position.x - 1.2)))
-            {
-                isInFrontOf = true;
-            }
-
             ghost.Die();
 
-            if (isKicking || isPunching)
+            if (!HasPlayerTakenDamage(ghost.transform, 5))
             {
-                if (!isInFrontOf)
-                {
-                    healthBar.loseHealth(5);
-                }
-                else
-                {
-                    ghost.InvertDirection();
-                }
+                ghost.InvertDirection();
             }
-            else if (!isKicking && !isPunching)
-            {
-                healthBar.loseHealth(5);
-            }
+        }
+        if (other.gameObject.CompareTag("BossPew"))
+        {
+            BossPew pew = other.GetComponent<BossPew>();
+            pew.DestroyBossPew();
+            HasPlayerTakenDamage(pew.transform, 2);
         }
     }
 }
