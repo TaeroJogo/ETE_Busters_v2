@@ -10,6 +10,9 @@ public class Boss : MonoBehaviour
     private float moveTime = 1;
     private bool canMove = true;
 
+    public bool isDead = false;
+    private float deadTimeAnim = 2f;
+
     private Transform playerTransform;
 
     private int health = 10;
@@ -22,22 +25,54 @@ public class Boss : MonoBehaviour
     private bool sprintAttacking = false;
     private float sprintAttackingTime = 1f;
 
+    private bool canShoot = false;
+    private float waitForFirstShootAttack = 5f;
+    private float shootAttackCooldown = 5f;
+
     public Timer timer;
+    public GameObject bossPew;
+    public Transform bossFirePoint;
+
+    Animator anim;
 
     void Start()
     {
-
         rig = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        anim.SetBool("attack", true);
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         timer.CreateTimer("bossSprintAttack", waitForFirstSprintAttack, 0, false, ActivateSprintAttack);
+        timer.CreateTimer("bossActivateShootAttack", waitForFirstShootAttack, 0, false, ActivateShoot);
     }
 
     void Update()
     {
-        Move();
-        SprintAttack();
+        if (!isDead)
+        {
+            Move();
+            SprintAttack();
+            if (canShoot)
+            {
+                canShoot = false;
+                timer.CreateTimer("bossShootAttack", shootAttackCooldown, 0, false, ShootBossPew);
+            }
+        }
+    }
+
+    void ActivateShoot()
+    {
+        canShoot = true;
+    }
+
+    void ShootBossPew()
+    {
+        canShoot = true;
+        if (!sprintAttacking)
+        {
+            Instantiate(bossPew, bossFirePoint.position, Quaternion.Euler(0, 0, 0));
+        }
     }
 
     void ActivateSprintAttack()
@@ -49,13 +84,18 @@ public class Boss : MonoBehaviour
     void StopSprintAttacking()
     {
         sprintAttacking = false;
+        ShootBossPew();
+        canShoot = true;
         canSprintAttack = true;
+        anim.SetBool("attack", true);
     }
 
     void RestartSprintAttack()
     {
         sprintAttacking = true;
+        canShoot = false;
         canMove = false;
+        anim.SetBool("attack", false);
         timer.CreateTimer("bossSprintAttacking", sprintAttackingTime, 0, false, StopSprintAttacking);
     }
 
@@ -113,12 +153,20 @@ public class Boss : MonoBehaviour
         health -= damageAmount;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    void DestroyBoss()
+    {
+        anim.SetBool("die", false);
+        Destroy(gameObject);
     }
 
     void Die()
     {
-        Destroy(gameObject);
+        isDead = true;
+        anim.SetBool("die", true);
+        timer.CreateTimer("bossDieAnimation", deadTimeAnim, 0, false, DestroyBoss);
     }
 }
