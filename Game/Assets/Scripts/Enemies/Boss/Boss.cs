@@ -26,7 +26,7 @@ public class Boss : MonoBehaviour
 
     private bool canShoot = false;
     private float waitForFirstShootAttack = 5f;
-    private float shootAttackCooldown = 5f;
+    private float shootAttackCooldown = 6f;
 
     public Timer timer;
     public GameObject bossPew;
@@ -71,9 +71,9 @@ public class Boss : MonoBehaviour
 
     void ShootBossPew()
     {
-        canShoot = true;
         if (!sprintAttacking)
         {
+            canShoot = true;
             Instantiate(bossPew, bossFirePoint.position, Quaternion.Euler(0, 0, 0));
         }
     }
@@ -88,7 +88,6 @@ public class Boss : MonoBehaviour
     {
         sprintAttacking = false;
         ShootBossPew();
-        canShoot = true;
         canSprintAttack = true;
         anim.SetBool("attack", true);
     }
