@@ -18,7 +18,7 @@ public class Control : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Cena Taero");
+        SceneManager.LoadScene("Corredor Principal");
     }
 
     public void Exit()
