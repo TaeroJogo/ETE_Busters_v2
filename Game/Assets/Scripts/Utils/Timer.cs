@@ -35,7 +35,14 @@ public class Timer : MonoBehaviour
 
                 if (timers[i].timeStamp <= timers[i].endTime)
                 {
-                    timers[i].timerCallback();
+                    try
+                    {
+                        timers[i].timerCallback();
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError("Timer callback error: " + e.Message);
+                    }
                     if (timers[i].loopTimer)
                     {
                         timers[i].timeStamp = timers[i].initialTime;
