@@ -689,6 +689,26 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!82 &1035075777 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1698236258342363178, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+  m_PrefabInstance: {fileID: 1118903405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1035075778 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5835327227170729094, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+  m_PrefabInstance: {fileID: 1118903405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1035075779 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 655827359111107350, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+  m_PrefabInstance: {fileID: 1118903405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1035075780 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3795065477801024746, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+  m_PrefabInstance: {fileID: 1118903405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1118903405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -696,6 +716,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 655827359111107350, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698236258342363178, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795065477801024746, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835327227170729094, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6028632449759033963, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -745,8 +781,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6028632449759033972, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 1035075778}
+    - target: {fileID: 6028632449759033972, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+      propertyPath: kick
+      value: 
+      objectReference: {fileID: 1035075779}
+    - target: {fileID: 6028632449759033972, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+      propertyPath: punch
+      value: 
+      objectReference: {fileID: 1035075780}
+    - target: {fileID: 6028632449759033972, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 698466888}
+    - target: {fileID: 6028632449759033972, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
+      propertyPath: cardthrow
+      value: 
+      objectReference: {fileID: 1035075777}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b0dfebd5bc149f499eed26d5966dc1f, type: 3}
