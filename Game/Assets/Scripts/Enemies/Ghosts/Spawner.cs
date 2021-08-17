@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Spawner : MonoBehaviour
 {
     public GameObject ghost;
@@ -10,11 +11,15 @@ public class Spawner : MonoBehaviour
     private float spawnRate = 2f;
     float nextSpawn = 0.0f;
 
+    public float minSpawnLocation;
+    public float maxSpawnLocation;
+
     void Update()
     {
-        if(Time.time > nextSpawn) {
+        if (Time.time > nextSpawn)
+        {
             nextSpawn = Time.time + spawnRate;
-            randX = Random.Range(-11.5f, 4.0f);
+            randX = Random.Range(minSpawnLocation, maxSpawnLocation);
             location = new Vector2(randX, transform.position.y);
             Instantiate(ghost, location, Quaternion.identity);
         }

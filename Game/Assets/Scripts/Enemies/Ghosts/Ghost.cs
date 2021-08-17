@@ -16,6 +16,8 @@ public class Ghost : MonoBehaviour
 
     private float dieAnimationTime = 0.5f;
 
+    public AudioSource dieSound;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -47,7 +49,7 @@ public class Ghost : MonoBehaviour
 
     public void Die()
     {
-
+        dieSound.Play();
         anim.SetBool("die", true);
         timer.CreateTimer("ghostDie", dieAnimationTime, 0, false, DieAnimation);
     }

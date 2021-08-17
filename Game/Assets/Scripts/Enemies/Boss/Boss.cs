@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -37,20 +38,37 @@ public class Boss : MonoBehaviour
     public AudioSource shoot;
     public AudioSource sprint;
 
+    private float revivinAnimationTime = 2.7f;
     Animator anim;
 
     public Rigidbody2D rb;
 
     void Start()
     {
+        string sceneName = SceneManager.GetActiveScene().name;
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        anim.SetBool("attack", true);
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
         initialX = transform.position.x;
 
+        if (sceneName == "Cena 4")
+        {
+            canMove = false;
+            anim.SetBool("revive", true);
+            timer.CreateTimer("bossReviving", revivinAnimationTime, 0, false, ActivateBasicsFunctions);
+        }
+        else
+        {
+            ActivateBasicsFunctions();
+        }
+    }
+
+    void ActivateBasicsFunctions()
+    {
+        canMove = true;
+        anim.SetBool("revive", false);
+        anim.SetBool("attack", true);
         timer.CreateTimer("bossSprintAttack", waitForFirstSprintAttack, 0, false, ActivateSprintAttack);
         timer.CreateTimer("bossActivateShootAttack", waitForFirstShootAttack, 0, false, ActivateShoot);
     }
@@ -78,9 +96,9 @@ public class Boss : MonoBehaviour
     {
         if (!sprintAttacking)
         {
+            shoot.Play();
             canShoot = true;
             Instantiate(bossPew, bossFirePoint.position, Quaternion.Euler(0, 0, 0));
-            shoot.Play();
         }
     }
 
@@ -100,12 +118,12 @@ public class Boss : MonoBehaviour
 
     void RestartSprintAttack()
     {
+        sprint.Play();
         sprintAttacking = true;
         canShoot = false;
         canMove = false;
         anim.SetBool("attack", false);
         timer.CreateTimer("bossSprintAttacking", sprintAttackingTime, 0, false, StopSprintAttacking);
-        sprint.Play();
     }
 
     void SprintAttack()
@@ -149,7 +167,10 @@ public class Boss : MonoBehaviour
     public void TakeDamage()
     {
         health -= damageAmount;
-        hit.Play();
+        if (!isDead)
+        {
+            hit.Play();
+        }
         if (health <= 0)
         {
             Die();
@@ -164,9 +185,12 @@ public class Boss : MonoBehaviour
 
     void Die()
     {
+        if (!isDead)
+        {
+            death.Play();
+        }
         isDead = true;
         anim.SetBool("die", true);
         timer.CreateTimer("bossDieAnimation", deadTimeAnim, 0, false, DestroyBoss);
-        death.Play();
     }
 }

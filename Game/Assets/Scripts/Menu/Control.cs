@@ -18,7 +18,7 @@ public class Control : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Corredor Principal");
+        SceneManager.LoadScene("Corredor 1");
     }
 
     public void Exit()

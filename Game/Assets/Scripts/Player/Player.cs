@@ -71,14 +71,12 @@ public class Player : MonoBehaviour
     {
         isPunching = false;
         anim.SetBool("punching", false);
-        punch.Play();
     }
 
     private void RestartKick()
     {
         isKicking = false;
         anim.SetBool("kicking", false);
-        kick.Play();
     }
 
     private void RestartShoot()
@@ -87,7 +85,6 @@ public class Player : MonoBehaviour
         anim.SetBool("vert_firing", false);
         canFire = true;
         hasShooted = false;
-        cardthrow.Play();
     }
 
     void PhysicalAttackHandler()
@@ -99,6 +96,7 @@ public class Player : MonoBehaviour
                 anim.SetBool("punching", true);
                 anim.SetBool("run", false);
                 isPunching = true;
+                punch.Play();
 
                 timer.CreateTimer("punch", punchTime, 0, false, RestartPunch);
             }
@@ -107,6 +105,7 @@ public class Player : MonoBehaviour
             {
                 isKicking = true;
                 anim.SetBool("kicking", true);
+                kick.Play();
 
                 timer.CreateTimer("kick", kickTime, 0, false, RestartKick);
             }
@@ -159,7 +158,7 @@ public class Player : MonoBehaviour
 
                 idCards--;
                 idCardsCounter.UpdateIDCardsCounter(idCards.ToString());
-
+                cardthrow.Play();
                 timer.CreateTimer("shoot", fireRateTime, 0, false, RestartShoot);
             }
 
@@ -251,7 +250,7 @@ public class Player : MonoBehaviour
             rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
             jump.Play();
         }
-        
+
     }
 
     bool HasPlayerTakenDamage(Transform entityT, int damage)
