@@ -5,10 +5,14 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform player;
-    public Transform camera;
 
-    void FixedUpdate() {
-        if(player.position.x >= 37.75 && player.position.x <= 77.3)
-        transform.position = new Vector3(player.position.x, camera.position.y, camera.position.z);
+    void Update()
+    {
+        Vector3 temp = transform.position;
+        if (player.position.x >= 37.75 && player.position.x <= 77.3)
+        {
+            temp.x = player.position.x;
+            transform.position = temp;
+        }
     }
 }
