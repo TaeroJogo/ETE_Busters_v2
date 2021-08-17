@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -44,10 +45,15 @@ public class Player : MonoBehaviour
     public AudioSource jump;
     public AudioSource cardthrow;
 
+    public bool canPlay;
+    public GameObject loseMsg;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        canPlay = true;
+        loseMsg.gameObject.SetActive(false);
     }
 
     void Update()
@@ -59,12 +65,25 @@ public class Player : MonoBehaviour
             isKicking = false;
             kickTime = 0.6f;
         }
+        if(canPlay) {
+            Move();
+            Jump();
 
-        Move();
-        Jump();
+            ShootHandler();
+            PhysicalAttackHandler();
+        }
+        if(!canPlay) {
+            anim.SetBool("jump",false);
+            anim.SetBool("run",false);
+            anim.SetBool("kicking", false);
+            anim.SetBool("sneak", true);
+            loseMsg.gameObject.SetActive(true);
+            Invoke("RestartGame", 3);
+        }
+    }
 
-        ShootHandler();
-        PhysicalAttackHandler();
+    private void RestartGame() {
+        SceneManager.LoadScene("Corredor 1");
     }
 
     private void RestartPunch()
