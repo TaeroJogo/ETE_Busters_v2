@@ -47,6 +47,9 @@ public class Player : MonoBehaviour
 
     public bool canPlay;
     public GameObject loseMsg;
+    public GameObject winMsg;
+
+    private bool canTakeDamage = true;
 
     void Start()
     {
@@ -54,6 +57,8 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         canPlay = true;
         loseMsg.gameObject.SetActive(false);
+        winMsg.gameObject.SetActive(false);
+        
     }
 
     void Update()
@@ -72,18 +77,32 @@ public class Player : MonoBehaviour
             ShootHandler();
             PhysicalAttackHandler();
         }
-        if(!canPlay) {
-            anim.SetBool("jump",false);
-            anim.SetBool("run",false);
-            anim.SetBool("kicking", false);
-            anim.SetBool("sneak", true);
-            loseMsg.gameObject.SetActive(true);
-            Invoke("RestartGame", 3);
-        }
     }
 
-    private void RestartGame() {
+    public void DeleteAll()
+    {
+        foreach (GameObject o in Object.FindObjectsOfType<GameObject>())
+        {
+            Destroy(o);
+        }
         SceneManager.LoadScene("Corredor 1");
+    }
+
+    public void EndGame(bool victory) {
+        if(!victory) {
+            loseMsg.gameObject.SetActive(true);
+            anim.SetBool("sneak", true);
+        }
+        else {
+            winMsg.gameObject.SetActive(true);
+            anim.SetBool("sneak", false);
+        }
+        anim.SetBool("jump",false);
+        anim.SetBool("run",false);
+        anim.SetBool("kicking", false);
+        timer.CreateTimer("DeleteAll", 3f, 0, false, DeleteAll);
+        canPlay = false;
+        canTakeDamage = false;
     }
 
     private void RestartPunch()
@@ -280,6 +299,7 @@ public class Player : MonoBehaviour
         {
             if (!((transform.forward.z == 1 && entityT.position.x > (transform.position.x + 1.2)) || (transform.forward.z == -1 && entityT.position.x > (transform.position.x - 1.2))))
             {
+                if(canTakeDamage)
                 healthBar.loseHealth(damage);
             }
             else
@@ -289,6 +309,7 @@ public class Player : MonoBehaviour
         }
         else if (!isKicking && !isPunching)
         {
+            if(canTakeDamage)
             healthBar.loseHealth(damage);
         }
 

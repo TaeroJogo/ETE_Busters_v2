@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
 
     void checkAlive() {
         if(slider.value <= 0) {
-            player.canPlay = false;
+            player.EndGame(false);
         }
     }
 
