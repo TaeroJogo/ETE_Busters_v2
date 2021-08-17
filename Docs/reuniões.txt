@@ -30,3 +30,14 @@ Leonardo Luciano
 Thúlio Balbuena
 Sofia Rezende
 Decidimos reduzir um pouco a quantidade de fases que serão apresentadas nessa apresentação, porem adicionamos algumas features.
+
+Reunião 16/08
+Participantes:
+Arthur Martins 
+Bianca Souza
+Gabriel Mota
+Eduardo Valias
+Leonardo Luciano
+Thúlio Balbuena
+Sofia Rezende
+Arrumar o documento do prof taero, e concertar alguns bugs do jogo antes da apresentação.
