@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     bool isGrounded;
     public Transform groundCheck;
+    public Transform groundCheck2;
     public LayerMask groundlayer;
 
     private Rigidbody2D rig;
@@ -51,7 +52,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer) || Physics2D.OverlapCircle(groundCheck2.position, 0.2f, groundlayer);
         if (isGrounded)
         {
             anim.SetBool("kicking", false);
