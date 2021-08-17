@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: acf8815494ec3484db4d8e2c3a79444d
-  - enabled: 1
-    path: Assets/Scenes/Cena Taero.unity
-    guid: e0bc5d9a42f694345814cd8756793a14
-  - enabled: 1
-    path: Assets/Scenes/Corredor Principal.unity
-    guid: e0b9811768b22de499339856204d8f45
   - enabled: 1
     path: Assets/Scenes/Corredor 1.unity
     guid: 7d84e4f62a8efe14397f088aebd51f3b
   - enabled: 1
+    path: Assets/Scenes/Cena Taero.unity
+    guid: e0bc5d9a42f694345814cd8756793a14
+  - enabled: 1
     path: Assets/Scenes/Cena 4.unity
     guid: e417b963050c75345875e134a1d4bce2
+  - enabled: 0
+    path: Assets/Scenes/Corredor Principal.unity
+    guid: e0b9811768b22de499339856204d8f45
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

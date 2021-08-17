@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     public AudioSource kick;
     public AudioSource jump;
     public AudioSource cardthrow;
+    public AudioSource victoryy;
+    public AudioSource finish;
 
     public bool canPlay;
     public GameObject loseMsg;
