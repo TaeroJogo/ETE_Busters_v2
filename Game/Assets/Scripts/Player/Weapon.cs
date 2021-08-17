@@ -8,6 +8,6 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
 
     void Shoot(){
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);//cria a bala
     }
 }

@@ -18,7 +18,7 @@ public class BossPew : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         anim.SetBool("flying", true);
-        rb.velocity = transform.right * speed;
+        rb.velocity = transform.right * speed;//faz o pew andar
     }
 
     private void Die()
@@ -31,7 +31,7 @@ public class BossPew : MonoBehaviour
     {
         anim.SetBool("flying", false);
         anim.SetBool("die", true);
-        rb.velocity = transform.right * 0;
+        rb.velocity = transform.right * 0;//quando morrer ele para de andar
         timer.CreateTimer("bossDieAnimation", dieTimeAnim, 0, false, Die);
     }
 

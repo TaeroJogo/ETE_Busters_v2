@@ -45,18 +45,18 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
+        string sceneName = SceneManager.GetActiveScene().name; //pega o nome da cena atual
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        initialX = transform.position.x;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform; //pega o transform do player
+        initialX = transform.position.x; //pega a posição inicial do boss e a armazena na variável
 
-        if (sceneName == "Cena 4")
+        if (sceneName == "Cena 4")//se a cena for a 4, toca a animacao de reviver
         {
             canMove = false;
             anim.SetBool("revive", true);
-            timer.CreateTimer("bossReviving", revivinAnimationTime, 0, false, ActivateBasicsFunctions);
+            timer.CreateTimer("bossReviving", revivinAnimationTime, 0, false, ActivateBasicsFunctions);//depois da funcao de reviver, ativa as funções básicas
         }
         else
         {
@@ -69,8 +69,8 @@ public class Boss : MonoBehaviour
         canMove = true;
         anim.SetBool("revive", false);
         anim.SetBool("attack", true);
-        timer.CreateTimer("bossSprintAttack", waitForFirstSprintAttack, 0, false, ActivateSprintAttack);
-        timer.CreateTimer("bossActivateShootAttack", waitForFirstShootAttack, 0, false, ActivateShoot);
+        timer.CreateTimer("bossSprintAttack", waitForFirstSprintAttack, 0, false, ActivateSprintAttack); //espera um pouco para ativar o ataque sprint
+        timer.CreateTimer("bossActivateShootAttack", waitForFirstShootAttack, 0, false, ActivateShoot); //espera um pouco para ativar o ataque de tiro
     }
 
     void Update()
@@ -82,7 +82,7 @@ public class Boss : MonoBehaviour
             if (canShoot)
             {
                 canShoot = false;
-                timer.CreateTimer("bossShootAttack", shootAttackCooldown, 0, false, ShootBossPew);
+                timer.CreateTimer("bossShootAttack", shootAttackCooldown, 0, false, ShootBossPew);//quando puder atacar, ativa o ataque de tiro
             }
         }
     }
@@ -96,9 +96,9 @@ public class Boss : MonoBehaviour
     {
         if (!sprintAttacking)
         {
-            shoot.Play();
+            shoot.Play();//toca o som do tiro
             canShoot = true;
-            Instantiate(bossPew, bossFirePoint.position, Quaternion.Euler(0, 0, 0));
+            Instantiate(bossPew, bossFirePoint.position, Quaternion.Euler(0, 0, 0));//atira o fantasma
         }
     }
 
@@ -118,6 +118,7 @@ public class Boss : MonoBehaviour
 
     void RestartSprintAttack()
     {
+        //tem a ver com o sprint ataque
         sprint.Play();
         sprintAttacking = true;
         canShoot = false;
@@ -136,6 +137,7 @@ public class Boss : MonoBehaviour
         }
         if (sprintAttacking)
         {
+            //da o sprint ataque no player
             float dir = -1;
 
             if (transform.position.y > playerTransform.position.y)
@@ -191,6 +193,6 @@ public class Boss : MonoBehaviour
         }
         isDead = true;
         anim.SetBool("die", true);
-        timer.CreateTimer("bossDieAnimation", deadTimeAnim, 0, false, DestroyBoss);
+        timer.CreateTimer("bossDieAnimation", deadTimeAnim, 0, false, DestroyBoss);//cria o timer e espera o tempo de animacao de morte para destruir o boss
     }
 }

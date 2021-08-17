@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
+        //faz a camera seguir o player, mas ela vai ate certo ponto, para nao sair da cena
         Vector3 temp = transform.position;
         if (player.position.x >= 37.75 && player.position.x <= 77.3)
         {

@@ -15,6 +15,7 @@ public class ColliderUpdater : MonoBehaviour
 
     void Start()
     {
+        //como essa funcao e utilizada em todos os objetos que se movem, ele tenta pegar ou um boxCollider2D ou um capsuleCollider2D
         capsuleColl = gameObject.GetComponentInChildren<CapsuleCollider2D>();
         boxColl = gameObject.GetComponentInChildren<BoxCollider2D>();
 
@@ -31,6 +32,8 @@ public class ColliderUpdater : MonoBehaviour
         }
     }
 
+
+    //essa funcao e chamada quando o sprite do mudar, arrumando o boxCollider2D e o capsuleCollider2D para o tamanho do sprite
     void UpdateCollider()
     {
         if (capsuleColl != null)

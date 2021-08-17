@@ -18,11 +18,11 @@ public class Control : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Corredor 1");
+        SceneManager.LoadScene("Corredor 1");//carrega a cena do corredor
     }
 
     public void Exit()
     {
-        Application.Quit();
+        Application.Quit();//fecha o jogo
     }
 }

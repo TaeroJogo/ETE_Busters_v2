@@ -28,7 +28,7 @@ public class Ghost : MonoBehaviour
     void Update()
     {
 
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);//faz o ghost se mover para o player
 
         if (transform.position.x > target.position.x)
         {
