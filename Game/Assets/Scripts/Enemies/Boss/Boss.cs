@@ -32,6 +32,11 @@ public class Boss : MonoBehaviour
     public GameObject bossPew;
     public Transform bossFirePoint;
 
+    public AudioSource death;
+    public AudioSource hit;
+    public AudioSource shoot;
+    public AudioSource sprint;
+
     Animator anim;
 
     public Rigidbody2D rb;
@@ -75,6 +80,7 @@ public class Boss : MonoBehaviour
         {
             canShoot = true;
             Instantiate(bossPew, bossFirePoint.position, Quaternion.Euler(0, 0, 0));
+            shoot.Play();
         }
     }
 
@@ -99,6 +105,7 @@ public class Boss : MonoBehaviour
         canMove = false;
         anim.SetBool("attack", false);
         timer.CreateTimer("bossSprintAttacking", sprintAttackingTime, 0, false, StopSprintAttacking);
+        sprint.Play();
     }
 
     void SprintAttack()
@@ -142,6 +149,7 @@ public class Boss : MonoBehaviour
     public void TakeDamage()
     {
         health -= damageAmount;
+        hit.Play();
         if (health <= 0)
         {
             Die();
@@ -159,5 +167,6 @@ public class Boss : MonoBehaviour
         isDead = true;
         anim.SetBool("die", true);
         timer.CreateTimer("bossDieAnimation", deadTimeAnim, 0, false, DestroyBoss);
+        death.Play();
     }
 }

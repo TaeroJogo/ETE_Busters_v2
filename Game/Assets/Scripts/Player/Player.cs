@@ -38,6 +38,11 @@ public class Player : MonoBehaviour
     public IDCardsCounterController idCardsCounter;
     private int idCards = 100;
 
+    public AudioSource punch;
+    public AudioSource kick;
+    public AudioSource jump;
+    public AudioSource cardthrow;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -65,12 +70,14 @@ public class Player : MonoBehaviour
     {
         isPunching = false;
         anim.SetBool("punching", false);
+        punch.Play();
     }
 
     private void RestartKick()
     {
         isKicking = false;
         anim.SetBool("kicking", false);
+        kick.Play();
     }
 
     private void RestartShoot()
@@ -79,6 +86,7 @@ public class Player : MonoBehaviour
         anim.SetBool("vert_firing", false);
         canFire = true;
         hasShooted = false;
+        cardthrow.Play();
     }
 
     void PhysicalAttackHandler()
@@ -240,7 +248,9 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("w") && isGrounded && !isSneak && !standShoot)
         {
             rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+            jump.Play();
         }
+        
     }
 
     bool HasPlayerTakenDamage(Transform entityT, int damage)
