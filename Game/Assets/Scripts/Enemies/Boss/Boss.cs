@@ -15,7 +15,7 @@ public class Boss : MonoBehaviour
 
     private Transform playerTransform;
 
-    private int health = 10;
+    private int health = 20;
     private int damageAmount = 1;
 
     private float sprintAttackTime = 5f;
@@ -43,6 +43,8 @@ public class Boss : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    private Player player;
+
     void Start()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -50,10 +52,12 @@ public class Boss : MonoBehaviour
         anim = GetComponent<Animator>();
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         initialX = transform.position.x;
 
         if (sceneName == "Cena 4")
         {
+            health = 30;
             canMove = false;
             anim.SetBool("revive", true);
             timer.CreateTimer("bossReviving", revivinAnimationTime, 0, false, ActivateBasicsFunctions);
@@ -189,6 +193,7 @@ public class Boss : MonoBehaviour
         {
             death.Play();
         }
+        player.EndGame(true);
         isDead = true;
         anim.SetBool("die", true);
         timer.CreateTimer("bossDieAnimation", deadTimeAnim, 0, false, DestroyBoss);

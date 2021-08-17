@@ -34,10 +34,7 @@ public class PhaseStart : MonoBehaviour
 
     public void DeleteAll(string scene)
     {
-        foreach (GameObject o in Object.FindObjectsOfType<GameObject>())
-        {
-            Destroy(o);
-        }
+        Destroy(GameObject.Find("Parent"));
         SceneManager.LoadScene(scene);
     }
 }
