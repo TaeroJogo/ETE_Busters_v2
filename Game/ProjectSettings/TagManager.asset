@@ -9,6 +9,7 @@ TagManager:
   - BossPew
   - worldBorder
   - Pufe
+  - PlayerF
   layers:
   - Default
   - TransparentFX

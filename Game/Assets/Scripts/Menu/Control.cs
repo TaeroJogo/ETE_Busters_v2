@@ -18,6 +18,23 @@ public class Control : MonoBehaviour
 
     public void Play()
     {
+        GameObject.Find("Canvas").transform.Find("Title").gameObject.SetActive(false);
+        GameObject.Find("Canvas").transform.Find("Quit Button").gameObject.SetActive(false);
+        GameObject.Find("Canvas").transform.Find("Play Button").gameObject.SetActive(false);
+        GameObject.Find("Canvas").transform.Find("FPlayer").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("MPlayer").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("PlayerTitle").gameObject.SetActive(true);
+    }
+
+    public void MStart()
+    {
+        PlayerPrefs.SetString("Player", "M");
+        SceneManager.LoadScene("Corredor 1");
+    }
+
+    public void FStart()
+    {
+        PlayerPrefs.SetString("Player", "F");
         SceneManager.LoadScene("Corredor 1");
     }
 

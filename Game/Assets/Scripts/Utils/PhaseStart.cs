@@ -10,7 +10,15 @@ public class PhaseStart : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if (PlayerPrefs.GetString("Player") == "M") {
+            Destroy(GameObject.Find("Parent").transform.Find("PlayerF").gameObject);
+            player = GameObject.Find("Parent").transform.Find("Player").GetComponent<Player>();
+        } else {
+            Destroy(GameObject.Find("Parent").transform.Find("Player").gameObject);
+            GameObject.Find("Parent").transform.Find("PlayerF").gameObject.SetActive(true);
+            player = GameObject.Find("Parent").transform.Find("PlayerF").GetComponent<Player>();
+        }
+
     }
 
     void Update()

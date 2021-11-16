@@ -7,6 +7,15 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform player;
 
+    void Start()
+    {
+        if (PlayerPrefs.GetString("Player") == "M") {
+            player = GameObject.Find("Parent").transform.Find("Player").transform;
+        } else {
+            player = GameObject.Find("Parent").transform.Find("PlayerF").transform;
+        }
+    }
+
     void Update()
     {
         Vector3 temp = transform.position;
