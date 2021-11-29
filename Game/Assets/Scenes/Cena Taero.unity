@@ -168,10 +168,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4471499801096147206, guid: 593c8479506600b4fa7bbdf4208320ca, type: 3}
+      propertyPath: m_TagString
+      value: PlayerF
+      objectReference: {fileID: 0}
     - target: {fileID: 4471499801096147225, guid: 593c8479506600b4fa7bbdf4208320ca, type: 3}
       propertyPath: winMsg
       value: 
       objectReference: {fileID: 2052137999}
+    - target: {fileID: 4471499801096147225, guid: 593c8479506600b4fa7bbdf4208320ca, type: 3}
+      propertyPath: canPlay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4471499801096147225, guid: 593c8479506600b4fa7bbdf4208320ca, type: 3}
       propertyPath: loseMsg
       value: 
@@ -1234,6 +1242,10 @@ PrefabInstance:
       propertyPath: winMsg
       value: 
       objectReference: {fileID: 2052137999}
+    - target: {fileID: 4471499801096147225, guid: 1ee32b45e51da184d934060dc13480c1, type: 3}
+      propertyPath: canPlay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4471499801096147225, guid: 1ee32b45e51da184d934060dc13480c1, type: 3}
       propertyPath: loseMsg
       value: 

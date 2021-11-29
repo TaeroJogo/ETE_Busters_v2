@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        List<string> whiteListCollider = new List<string> { "Player", "Pufe" };
+        List<string> whiteListCollider = new List<string> { "Player", "Pufe", "PlayerF" };
 
         if (hitInfo.tag == "Boss")
         {

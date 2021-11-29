@@ -51,8 +51,17 @@ public class Boss : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if (PlayerPrefs.GetString("Player") == "M")
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        }
+        else
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("PlayerF").transform;
+            player = GameObject.FindGameObjectWithTag("PlayerF").GetComponent<Player>();
+        }
+
         initialX = transform.position.x;
 
         if (sceneName == "Cena 4")

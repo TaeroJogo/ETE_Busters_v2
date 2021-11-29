@@ -6,7 +6,7 @@ public class Ghost : MonoBehaviour
 {
     public float speed;
 
-    private Transform target;
+    public Transform target;
 
     private Rigidbody2D rig;
 
@@ -22,7 +22,15 @@ public class Ghost : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if (PlayerPrefs.GetString("Player") == "M")
+        {
+            target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
+        else
+        {
+            target = GameObject.FindGameObjectWithTag("PlayerF").GetComponent<Transform>();
+        }
+
     }
 
     void Update()

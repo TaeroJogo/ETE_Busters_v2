@@ -29,13 +29,13 @@ public class Control : MonoBehaviour
     public void MStart()
     {
         PlayerPrefs.SetString("Player", "M");
-        SceneManager.LoadScene("Corredor 1");
+        SceneManager.LoadScene("Corredor 2");
     }
 
     public void FStart()
     {
         PlayerPrefs.SetString("Player", "F");
-        SceneManager.LoadScene("Corredor 1");
+        SceneManager.LoadScene("Corredor 2");
     }
 
     public void Exit()

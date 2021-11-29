@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     public AudioSource victoryy;
     public AudioSource finish;
 
-    public bool canPlay;
+    public bool canPlay = true;
     public GameObject loseMsg;
     public GameObject winMsg;
 
@@ -57,10 +57,9 @@ public class Player : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        canPlay = true;
         loseMsg.gameObject.SetActive(false);
         winMsg.gameObject.SetActive(false);
-        
+
     }
 
     void Update()
@@ -72,7 +71,8 @@ public class Player : MonoBehaviour
             isKicking = false;
             kickTime = 0.6f;
         }
-        if(canPlay) {
+        if (canPlay)
+        {
             Move();
             Jump();
 
@@ -90,17 +90,20 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("Corredor 1");
     }
 
-    public void EndGame(bool victory) {
-        if(!victory) {
+    public void EndGame(bool victory)
+    {
+        if (!victory)
+        {
             loseMsg.gameObject.SetActive(true);
             anim.SetBool("sneak", true);
         }
-        else {
+        else
+        {
             winMsg.gameObject.SetActive(true);
             anim.SetBool("sneak", false);
         }
-        anim.SetBool("jump",false);
-        anim.SetBool("run",false);
+        anim.SetBool("jump", false);
+        anim.SetBool("run", false);
         anim.SetBool("kicking", false);
         timer.CreateTimer("DeleteAll", 3f, 0, false, DeleteAll);
         canPlay = false;
@@ -301,8 +304,8 @@ public class Player : MonoBehaviour
         {
             if (!((transform.forward.z == 1 && entityT.position.x > (transform.position.x + 1.2)) || (transform.forward.z == -1 && entityT.position.x > (transform.position.x - 1.2))))
             {
-                if(canTakeDamage)
-                healthBar.loseHealth(damage);
+                if (canTakeDamage)
+                    healthBar.loseHealth(damage);
             }
             else
             {
@@ -311,8 +314,8 @@ public class Player : MonoBehaviour
         }
         else if (!isKicking && !isPunching)
         {
-            if(canTakeDamage)
-            healthBar.loseHealth(damage);
+            if (canTakeDamage)
+                healthBar.loseHealth(damage);
         }
 
         return hasTakenDamage;
@@ -350,5 +353,11 @@ public class Player : MonoBehaviour
                 boss.TakeDamage();
             }
         }
+    }
+
+    public void ManualRun()
+    {
+        anim.SetBool("run", true);
+        rig.velocity = new Vector2(5, 0);
     }
 }
