@@ -15,7 +15,7 @@ public class Boss : MonoBehaviour
 
     private Transform playerTransform;
 
-    private int health = 20;
+    public int health = 20;
     private int damageAmount = 1;
 
     private float sprintAttackTime = 5f;

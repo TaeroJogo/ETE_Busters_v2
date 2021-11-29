@@ -96,6 +96,7 @@ public class Player : MonoBehaviour
         {
             loseMsg.gameObject.SetActive(true);
             anim.SetBool("sneak", true);
+            timer.CreateTimer("DeleteAll", 3f, 0, false, DeleteAll);
         }
         else
         {
@@ -105,7 +106,7 @@ public class Player : MonoBehaviour
         anim.SetBool("jump", false);
         anim.SetBool("run", false);
         anim.SetBool("kicking", false);
-        timer.CreateTimer("DeleteAll", 3f, 0, false, DeleteAll);
+        //timer.CreateTimer("DeleteAll", 3f, 0, false, DeleteAll);
         canPlay = false;
         canTakeDamage = false;
     }
