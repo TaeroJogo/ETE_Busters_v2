@@ -98,13 +98,20 @@ public class Player : MonoBehaviour
         string sceneName = currentScene.name;
 
 
-        if (sceneName == "Cena 4" && wasVictory)
+        if (wasVictory)
         {
-            SceneManager.LoadScene("Salao de prova");
+            if (sceneName == "Cena 4")
+            {
+                SceneManager.LoadScene("Salao de prova");
+            }
+            else
+            {
+                SceneManager.LoadScene("Corredor 1");
+            }
         }
         else
         {
-            SceneManager.LoadScene("Corredor 1");
+            SceneManager.LoadScene("Menu");
         }
 
 
