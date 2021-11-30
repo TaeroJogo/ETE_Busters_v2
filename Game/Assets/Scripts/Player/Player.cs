@@ -91,7 +91,21 @@ public class Player : MonoBehaviour
         {
             Destroy(o);
         }
-        SceneManager.LoadScene("Corredor 1");
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+
+        if (sceneName == "Cena 4")
+        {
+            SceneManager.LoadScene("Salao de prova");
+        }
+        else
+        {
+            SceneManager.LoadScene("Corredor 1");
+        }
+
+
     }
 
     public void EndGame(bool victory)
