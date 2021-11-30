@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
+    public Dialogue dialogue;
     private Rigidbody2D rig;
     private float verticalSpeed = 2f;
     private float initialX;

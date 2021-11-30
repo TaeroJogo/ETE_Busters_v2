@@ -20,6 +20,7 @@ public class Jp : MonoBehaviour
     {
         if(boss.health <= 0) {
             anim.SetBool("IdleJP", true);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
     }
 }
