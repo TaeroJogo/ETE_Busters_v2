@@ -12,6 +12,7 @@ TagManager:
   - PlayerF
   - idcard
   - heart
+  - test
   layers:
   - Default
   - TransparentFX

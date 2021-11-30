@@ -53,6 +53,8 @@ public class Player : MonoBehaviour
 
     private bool canTakeDamage = true;
 
+    public bool wasVictory = false;
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -96,7 +98,7 @@ public class Player : MonoBehaviour
         string sceneName = currentScene.name;
 
 
-        if (sceneName == "Cena 4")
+        if (sceneName == "Cena 4" && wasVictory)
         {
             SceneManager.LoadScene("Salao de prova");
         }
@@ -115,11 +117,13 @@ public class Player : MonoBehaviour
             loseMsg.gameObject.SetActive(true);
             anim.SetBool("sneak", true);
             timer.CreateTimer("DeleteAll", 3f, 0, false, DeleteAll);
+            wasVictory = false;
         }
         else
         {
             winMsg.gameObject.SetActive(true);
             anim.SetBool("sneak", false);
+            wasVictory = true;
         }
         anim.SetBool("jump", false);
         anim.SetBool("run", false);
