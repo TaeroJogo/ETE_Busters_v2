@@ -17,7 +17,7 @@ public class ControlledGhost : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target, 1 * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target, 3 * Time.deltaTime);
         anim.SetBool("right", true);
     }
 }

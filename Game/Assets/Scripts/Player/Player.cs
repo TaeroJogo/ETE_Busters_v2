@@ -60,9 +60,6 @@ public class Player : MonoBehaviour
         loseMsg.gameObject.SetActive(false);
         winMsg.gameObject.SetActive(false);
 
-
-        Debug.Log(PlayerPrefs.GetInt("Health"));
-
         healthBar.SetHealth(PlayerPrefs.GetInt("Health"));
         idCards = PlayerPrefs.GetInt("IDCount");
     }
@@ -368,5 +365,10 @@ public class Player : MonoBehaviour
     {
         anim.SetBool("run", true);
         rig.velocity = new Vector2(5, 0);
+    }
+
+    public void Teste()
+    {
+        Debug.Log(312312);
     }
 }
