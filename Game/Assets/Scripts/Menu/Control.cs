@@ -28,12 +28,17 @@ public class Control : MonoBehaviour
 
     public void MStart()
     {
+        PlayerPrefs.SetInt("IDCount", 100);
+        PlayerPrefs.SetInt("Health", 100);
         PlayerPrefs.SetString("Player", "M");
         SceneManager.LoadScene("Corredor 2");
     }
 
     public void FStart()
     {
+
+        PlayerPrefs.SetInt("IDCount", 100);
+        PlayerPrefs.SetInt("Health", 100);
         PlayerPrefs.SetString("Player", "F");
         SceneManager.LoadScene("Corredor 2");
     }

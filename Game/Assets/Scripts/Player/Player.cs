@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     private bool standShoot = false;
     private string shootDirection;
 
-    private bool isPunching = false;
+    public bool isPunching = false;
     private float punchTime = 0.4f;
 
     private bool isKicking = false;
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
 
     public IDCardsCounterController idCardsCounter;
-    private int idCards = 100;
+    private int idCards;
 
     public AudioSource punch;
     public AudioSource kick;
@@ -60,6 +60,11 @@ public class Player : MonoBehaviour
         loseMsg.gameObject.SetActive(false);
         winMsg.gameObject.SetActive(false);
 
+
+        Debug.Log(PlayerPrefs.GetInt("Health"));
+
+        healthBar.SetHealth(PlayerPrefs.GetInt("Health"));
+        idCards = PlayerPrefs.GetInt("IDCount");
     }
 
     void Update()
@@ -83,6 +88,8 @@ public class Player : MonoBehaviour
 
     public void DeleteAll()
     {
+        PlayerPrefs.SetInt("Health", healthBar.GetHealth());
+        PlayerPrefs.SetInt("IDCount", idCards);
         foreach (GameObject o in Object.FindObjectsOfType<GameObject>())
         {
             Destroy(o);
@@ -106,7 +113,7 @@ public class Player : MonoBehaviour
         anim.SetBool("jump", false);
         anim.SetBool("run", false);
         anim.SetBool("kicking", false);
-        //timer.CreateTimer("DeleteAll", 3f, 0, false, DeleteAll);
+        timer.CreateTimer("DeleteAll", 8f, 0, false, DeleteAll);
         canPlay = false;
         canTakeDamage = false;
     }
@@ -233,6 +240,7 @@ public class Player : MonoBehaviour
                 position.x = firePoint.position.x - 2;
             }
         }
+        PlayerPrefs.SetInt("IDCount", idCards);
         Instantiate(bulletPrefab, position, firePoint.rotation * diretion);
     }
 

@@ -10,6 +10,8 @@ TagManager:
   - worldBorder
   - Pufe
   - PlayerF
+  - idcard
+  - heart
   layers:
   - Default
   - TransparentFX

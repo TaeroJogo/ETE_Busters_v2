@@ -10,7 +10,7 @@ public class IDCardsCounterController : MonoBehaviour
     void Start()
     {
         idCardsCounter = GameObject.Find("Canvas/Text").GetComponent<Text>();
-        idCardsCounter.text = "100";
+        UpdateIDCardsCounter(PlayerPrefs.GetInt("IDCount").ToString());
     }
 
     public void UpdateIDCardsCounter(string amount)
