@@ -6,6 +6,8 @@ public class bossD : MonoBehaviour
 {
     public Dialogue dialogue;
 
+    public GameObject dialogueBox;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,7 @@ public class bossD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void test()
@@ -26,6 +28,7 @@ public class bossD : MonoBehaviour
 
     void test2()
     {
+        Destroy(dialogueBox);
         FindObjectOfType<DialogueManager>().EndDialogue();
     }
 }
